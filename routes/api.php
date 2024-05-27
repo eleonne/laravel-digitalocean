@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PokemonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/send', [PokemonController::class, 'send_pokemon']);
+Route::post('/list', [PokemonController::class, 'list_folder']);
+// Route::get('/send', function() {
+//     return PokemonController::send_pokemon(); 
+//     print_r(PokemonController::send_pokemon());
+//     exit;
+// });
+
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
