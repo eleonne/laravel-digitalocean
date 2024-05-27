@@ -7,6 +7,20 @@ use Illuminate\Support\Facades\Storage;
 
 class PokemonController extends Controller
 {
+
+    private $players = [
+        ['name' => 'Nicholas', 'captured'=> [], 'picture'=> 'nicholas.jpg'],
+        ['name' => 'Gabriela', 'captured'=> [], 'picture'=> 'gabriela.jpg'],
+        ['name' => 'João', 'captured'=> [], 'picture'=> 'joao.jpg'],
+        ['name' => 'Megan', 'captured'=> [], 'picture'=> 'megan.jpg'],
+        ['name' => 'Meggy', 'captured'=> [], 'picture'=> 'meggy.jpg'],
+        ['name' => 'Hamza', 'captured'=> [], 'picture'=> 'hamza.jpg'],
+        ['name' => 'Zeiri', 'captured'=> [], 'picture'=> 'zeiri.jpg'],
+        ['name' => 'Gabriele', 'captured'=> [], 'picture'=> 'gabriele.jpg'],
+        ['name' => 'Luiza', 'captured'=> [], 'picture'=> 'luiza.jpg'],
+        ['name' => 'John', 'captured'=> [], 'picture'=> 'john.jpg']
+    ];
+
     public function send_pokemon(Request $request)
     {
         $data = json_decode($request->list, true);
@@ -18,6 +32,30 @@ class PokemonController extends Controller
     public function list_folder()
     {
         $data = Storage::files('pokemon/');
+        return response()->json($data, 200);
+    }
+
+    public function getPlayers() {
+        $data = [];
+        foreach($this->players as $player) {
+            $captured = json_decode(Storage::get('pokemon/' . $player['name'] . '.json'), true);
+            if (count($captured) > 0) {
+                $player['captured'] = $captured;
+                $data[] = $player;
+            }
+        }
+        return response()->json($data, 200);
+    }
+
+    public function getPlayerDetails(Request $request) {
+        $data = [];
+        foreach($this->players as $player) {
+            if ($player['name'] == $request->name) {
+                $captured = json_decode(Storage::get('pokemon/' . $player['name'] . '.json'), true);
+                $player['captured'] = $captured;
+                $data = $player;
+            }
+        }
         return response()->json($data, 200);
     }
 }
