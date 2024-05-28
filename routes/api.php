@@ -16,9 +16,11 @@ use App\Http\Controllers\PokemonController;
 */
 
 Route::post('/send', [PokemonController::class, 'send_pokemon']);
-Route::post('/list', [PokemonController::class, 'list_folder']);
+Route::get('/list', [PokemonController::class, 'list_folder']);
 Route::get('/players', [PokemonController::class, 'getPlayers']);
-Route::get('/details/{name}', [PokemonController::class, 'getPlayerDetails'])->name('editApplication');;
+Route::get('/players-list', [PokemonController::class, 'getPlayersList']);
+Route::get('/start', [PokemonController::class, 'start']);
+Route::get('/details/{name}', [PokemonController::class, 'getPlayerDetails'])->name('editApplication');
 // Route::get('/send', function() {
 //     return PokemonController::send_pokemon(); 
 //     print_r(PokemonController::send_pokemon());

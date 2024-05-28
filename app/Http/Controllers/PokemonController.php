@@ -28,6 +28,11 @@ class PokemonController extends Controller
         
         return response()->json($data, 200);
     }
+
+    public function start() {
+        foreach ($this->players as $player)
+            Storage::put('pokemon/' . $player->name . '.json', '[]', 'public');
+    }
     
     public function list_folder()
     {
@@ -45,6 +50,10 @@ class PokemonController extends Controller
             }
         }
         return response()->json($data, 200);
+    }
+
+    public function getPlayersList() {
+        return response()->json($$this->players, 200);
     }
 
     public function getPlayerDetails(Request $request) {
