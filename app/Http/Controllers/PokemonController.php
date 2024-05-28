@@ -53,7 +53,7 @@ class PokemonController extends Controller
     }
 
     public function getPlayersList() {
-        return response()->json($$this->players, 200);
+        return response()->json($this->players, 200);
     }
 
     public function getPlayerDetails(Request $request) {
