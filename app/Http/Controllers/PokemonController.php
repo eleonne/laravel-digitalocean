@@ -9,16 +9,16 @@ class PokemonController extends Controller
 {
 
     private $players = [
-        ['name' => 'Nicholas', 'captured'=> [], 'picture'=> 'nicholas.jpg'],
-        ['name' => 'Gabriela', 'captured'=> [], 'picture'=> 'gabriela.jpg'],
-        ['name' => 'João', 'captured'=> [], 'picture'=> 'joao.jpg'],
-        ['name' => 'Megan', 'captured'=> [], 'picture'=> 'megan.jpg'],
-        ['name' => 'Meggy', 'captured'=> [], 'picture'=> 'meggy.jpg'],
-        ['name' => 'Hamza', 'captured'=> [], 'picture'=> 'hamza.jpg'],
-        ['name' => 'Zeiri', 'captured'=> [], 'picture'=> 'zeiri.jpg'],
-        ['name' => 'Gabriele', 'captured'=> [], 'picture'=> 'gabriele.jpg'],
-        ['name' => 'Luiza', 'captured'=> [], 'picture'=> 'luiza.jpg'],
-        ['name' => 'John', 'captured'=> [], 'picture'=> 'john.jpg']
+        ['name' => 'Nicholas', 'captured'=> [], 'picture'=> 'm1.png'],
+        ['name' => 'Gabriela', 'captured'=> [], 'picture'=> 'f1.jpg'],
+        ['name' => 'João', 'captured'=> [], 'picture'=> 'm2.jpg'],
+        ['name' => 'Megan', 'captured'=> [], 'picture'=> 'f2.jpg'],
+        ['name' => 'Meggy', 'captured'=> [], 'picture'=> 'f3.png'],
+        ['name' => 'Hamza', 'captured'=> [], 'picture'=> 'm3.png'],
+        ['name' => 'Zeiri', 'captured'=> [], 'picture'=> 'm4.png'],
+        ['name' => 'Gabriele', 'captured'=> [], 'picture'=> 'f4.png'],
+        ['name' => 'Luiza', 'captured'=> [], 'picture'=> 'f5.jpg'],
+        ['name' => 'John', 'captured'=> [], 'picture'=> 'm5.png']
     ];
 
     public function send_pokemon(Request $request)
