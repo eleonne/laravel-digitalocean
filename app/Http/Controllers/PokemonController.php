@@ -31,7 +31,7 @@ class PokemonController extends Controller
 
     public function start() {
         foreach ($this->players as $player)
-            Storage::put('pokemon/' . $player->name . '.json', '[]', 'public');
+            Storage::put('pokemon/' . $player['name'] . '.json', '[]', 'public');
     }
     
     public function list_folder()
