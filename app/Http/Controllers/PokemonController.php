@@ -40,8 +40,16 @@ class PokemonController extends Controller
         return response()->json($data, 200);
     }
 
+    function compareCaptured($a, $b) {
+        if ($a['captured'] == $b['captured']) {
+            return 0;
+        }
+        return ($a['captured'] < $b['captured']) ? 1 : -1;
+    }
+
     public function getPlayers() {
         $data = [];
+
         foreach($this->players as $player) {
             $captured = json_decode(Storage::get('pokemon/' . $player['name'] . '.json'), true);
             if (count($captured) > 0) {
@@ -49,6 +57,7 @@ class PokemonController extends Controller
                 $data[] = $player;
             }
         }
+        usort($data, [$this, 'compareCaptured']);
         return response()->json($data, 200);
     }
 
