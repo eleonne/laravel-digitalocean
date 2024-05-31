@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class PokemonController extends Controller
 {
@@ -87,5 +88,19 @@ class PokemonController extends Controller
             }
             return $carry;
         }, null);
+    }
+
+    public function populate() {
+        // Define the source and destination paths
+        // echo base_path();exit;
+        $sourcePath = base_path('pokemon');
+        $destinationPath = storage_path('app/pokemon');
+
+        // Copy the directory
+        if (File::copyDirectory($sourcePath, $destinationPath)) {
+            echo "Folder copied successfully.";
+        } else {
+            echo "Failed to copy the folder.";
+        }
     }
 }

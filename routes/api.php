@@ -21,6 +21,7 @@ Route::get('/players', [PokemonController::class, 'getPlayers']);
 Route::get('/players-list', [PokemonController::class, 'getPlayersList']);
 Route::get('/max-player', [PokemonController::class, 'getMaxPlayer']);
 Route::get('/start', [PokemonController::class, 'start']);
+Route::get('/populate', [PokemonController::class, 'populate']);
 Route::get('/details/{name}', [PokemonController::class, 'getPlayerDetails'])->name('editApplication');
 // Route::get('/send', function() {
 //     return PokemonController::send_pokemon(); 
