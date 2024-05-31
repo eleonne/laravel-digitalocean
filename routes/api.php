@@ -19,6 +19,7 @@ Route::post('/send', [PokemonController::class, 'send_pokemon']);
 Route::get('/list', [PokemonController::class, 'list_folder']);
 Route::get('/players', [PokemonController::class, 'getPlayers']);
 Route::get('/players-list', [PokemonController::class, 'getPlayersList']);
+Route::get('/max-player', [PokemonController::class, 'getMaxPlayer']);
 Route::get('/start', [PokemonController::class, 'start']);
 Route::get('/details/{name}', [PokemonController::class, 'getPlayerDetails'])->name('editApplication');
 // Route::get('/send', function() {

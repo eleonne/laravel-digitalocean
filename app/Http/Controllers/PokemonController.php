@@ -76,4 +76,16 @@ class PokemonController extends Controller
         }
         return response()->json($data, 200);
     }
+
+    public function getMaxPlayer() {
+        return array_reduce($this->players, function ($carry, $item) {
+            if ($carry !== null)
+                $carry['captured'] = json_decode(Storage::get('pokemon/' . $carry['name'] . '.json'), true);
+            $item['captured'] = json_decode(Storage::get('pokemon/' . $item['name'] . '.json'), true);
+            if ($carry === null || count($item['captured']) > count($carry['captured'])) {
+                return $item;
+            }
+            return $carry;
+        }, null);
+    }
 }
